@@ -5,28 +5,37 @@ import java.util.List;
 public class Lion {
 
     boolean hasMane;
+    //Инъекция зависимости
+    Viviparous bigCat;
 
-    public Lion(String sex) throws Exception {
+    public Lion(Viviparous bigCat, String sex) throws Exception {
+        this.bigCat = bigCat;
+
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
             hasMane = false;
         } else {
-            throw new Exception("Используйте допустимые значения пола животного - самей или самка");
+            //System.out.println("Пол льва " + sex);
+            //hasMane = false;
+            throw new Exception("Используйте допустимые значения пола животного - самец или самка");
         }
     }
 
-    Feline feline = new Feline();
+    //Удалена зависимость от класса Feline
+    //Feline feline = new Feline();
 
+    //Перегружен метод getKittens()
     public int getKittens() {
-        return feline.getKittens();
+        return bigCat.getKittens();
     }
 
     public boolean doesHaveMane() {
         return hasMane;
     }
 
+    //Перегружен метод getFood()
     public List<String> getFood() throws Exception {
-        return feline.getFood("Хищник");
+        return bigCat.getFood("Хищник");
     }
 }
