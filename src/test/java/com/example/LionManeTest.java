@@ -22,7 +22,7 @@ public class LionManeTest {
 
     @Test
     public void doesHaveManeTest() throws Exception {
-        Viviparous bigCat = new Feline();
+        Feline bigCat = new Feline();
         try {
             Lion lion = new Lion(bigCat, sex);
             Assert.assertEquals("Проверка Наличия гривы возвращает не верное значение " + lion.doesHaveMane(), hasManeTest, lion.doesHaveMane());

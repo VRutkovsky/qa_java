@@ -26,14 +26,19 @@ public class AnimalTest {
     }
 
     @Test
-    public void getFoodExceptionTest(){
+    public void getFoodExceptionTest() throws Exception {
+        boolean exceptionHappened = true;
         try {
             Animal animal = new Animal();
-            animal.getFood("Другое");
+            animal.getFood("Другое"); //"Другое"
+            exceptionHappened = false;
         } catch (Exception e) {
             Assert.assertEquals("Текст сообщения об ошибке не совпадает с ожидаемым.", "Неизвестный вид животного, используйте значение Травоядное или Хищник", e.getMessage());
+        } finally {
+            if(!exceptionHappened) {
+                throw new Exception("Исключение не произошло. Тест прошел не корректно.");
+            }
         }
-
     }
 
     @Test

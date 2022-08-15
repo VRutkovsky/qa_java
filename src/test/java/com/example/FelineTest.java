@@ -7,12 +7,9 @@ import org.junit.runners.Parameterized;
 
 import java.util.List;
 
-@RunWith(Parameterized.class)
 public class FelineTest {
-    private int kittenCount;
 
-    public FelineTest(int kittenCount){
-        this.kittenCount = kittenCount;
+    public FelineTest(){
     }
 
     @Test
@@ -32,16 +29,5 @@ public class FelineTest {
     public void felineGetKittensDefaultTest(){
         Feline feline = new Feline();
         Assert.assertEquals("По-умолчанию должен быть один котенок", 1, feline.getKittens());
-    }
-
-    @Parameterized.Parameters
-    public static Object[] getTestData() {
-        return new Object[]{0, 1, 2, 3};
-    }
-
-    @Test
-    public void felineGetKittensTest() {
-        Feline feline = new Feline();
-        Assert.assertEquals("Котят должно быть " + kittenCount, kittenCount, feline.getKittens(kittenCount));
     }
 }

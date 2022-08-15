@@ -6,9 +6,9 @@ public class Lion {
 
     boolean hasMane;
     //Инъекция зависимости
-    Viviparous bigCat;
+    Feline bigCat;
 
-    public Lion(Viviparous bigCat, String sex) throws Exception {
+    public Lion(Feline bigCat, String sex) throws Exception {
         this.bigCat = bigCat;
 
         if ("Самец".equals(sex)) {
